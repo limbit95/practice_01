@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="EUC-KR">
 <title>Post List Page</title>
 </head>
+<script th:inline="javascript">
+	const message = /*[[${message}]]*/"";
+	if(message !== "") {
+		alert(message);
+	}
+</script>
 <body>
+	
+	<th:each="item : ${postList}">
+		<div>
+			<span>${item.id}</span>
+			<a th:href="/posts/${item.id}">${item.title}</a>
+		</div>
+	</th:each>
+	
+    <a href="/">Main Page</a>
     
 </body>
 </html>
