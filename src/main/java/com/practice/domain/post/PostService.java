@@ -1,6 +1,7 @@
 package com.practice.domain.post;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -11,8 +12,8 @@ public class PostService {
 	
 	public PostService(PostRepository postRepository) { this.postRepository = postRepository; }
 	
-	public Post findById(Long id) {
-		return findById(id);
+	public Optional<Post> findById(Long id) {
+		return postRepository.findById(id);
 	}
 
 	public Long save(Post post) {
@@ -20,7 +21,7 @@ public class PostService {
 	}
 
 	public List<Post> findAll() {
-		return findAll();
+		return postRepository.findAll();
 	}
 	
 }

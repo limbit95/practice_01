@@ -5,19 +5,19 @@
 <title>Post List Page</title>
 </head>
 <script th:inline="javascript">
-	const message = /*[[${message}]]*/"";
-	if(message !== "") {
+	const message = /*[[${message}]]*/ "";
+	if(message !== "" && message != null) {
 		alert(message);
 	}
 </script>
 <body>
 	
-	<th:each="item : ${postList}">
-		<div>
-			<span>${item.id}</span>
-			<a th:href="/posts/${item.id}">${item.title}</a>
-		</div>
-	</th:each>
+	<div th:each="item : ${postList}">
+		<span></span>
+		<a th:href="@{/posts/detail(id=${item.postId})}" th:text="${item.postId}"></a>
+	</div>
+	
+	<br>
 	
     <a href="/">Main Page</a>
     
